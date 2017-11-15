@@ -1,0 +1,77 @@
+body{
+		background: #a3c8a2;
+
+	}
+	#hands{
+		margin: 100px auto;
+		border: 1px solid #ccc;
+		height: 400px;
+		width: 400px;
+		position: relative;
+	}
+	.pd{
+		position: absolute;
+		top:20%;
+		left: 50%;
+	}
+	.pd span{
+		display: block;
+		height: 30px;
+		width: 100px;
+		background-color: #f3c5ad;
+		border-radius:  10px 25px 25px 10px;
+	}
+	.bd span{
+		background-color: #ccc;
+	}
+	#hands .hs1{
+		position: relative;
+		width: 70px;
+		border-top: 1px solid #b87e57;
+		border-right:1px solid #b87e57;
+		transform: rotateZ(-50deg) translate(-6px,1px);
+		z-index: 1;
+	}
+	#hands .hs2{
+		position: relative;
+		border-top: 1px solid #b87e57;
+		border-left: 1px solid #b87e57;
+		border-right:1px solid #b87e57;
+	}
+	#hands .hs3{
+		position: relative;
+		border-right:1px solid #b87e57;
+	}
+	#hands .hs4{
+		position: relative;
+		border-right:1px solid #b87e57;
+	}
+	#hands .hs5{
+		position: relative;
+		border-bottom: 1px solid #b87e57;
+		border-left: 1px solid #b87e57;
+		border-right:1px solid #b87e57;
+	}
+	#hands .hs6{
+		position: absolute;
+		border-radius :0;
+		height: 86px;
+		left: -85px;
+		top: 49px;
+		border-top: 1px solid #b87e57;
+	}
+	.show {
+		transform:   translate(80px,10px);
+		opacity: 1;
+		color: #f3c5ad;
+		font-size: 40px;
+		animation: myfirst 3s;
+	}
+	.hide{
+		opacity: 0;
+	}
+	@keyframes myfirst
+		{
+		0%   {transform:   translate(80px,80px);opacity: 1}
+		100% {transform:   translate(80px,10px);opacity: 0}
+		}
