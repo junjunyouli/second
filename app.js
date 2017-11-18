@@ -1,29 +1,32 @@
-const Koa = require('koa');
-const Router = require('koa-router');
-const render = require('koa-swig');
-const co = require('co');
-const s_static = require("koa-static");
+import  Koa  from  'koa';
+import Router from 'koa-router';
+import render  from 'koa-swig';
+import  co from 'co';
+import  s_static from "koa-static";
+import  b_r from 'babel-core/register';
+import  b_p from 'babel-polyfill';
+
+
+import init from "./controller/initController";
+import config from "./config/index";
+
 const app = new Koa();
 const router = new Router();
-app.use(router.routes());
-app.use(router.allowedMethods());
-app.use(s_static(__dirname+ "/public"));
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
+
+init.init(router);
+
 app.context.render = co.wrap(render({
-	root: __dirname+'/views',
+	root: config.get('viewDir'),
 	autoescape: true,
 	cache: false, 
 	ext: 'html'
 }));
-
-router.get("/index/index",async function (ctx,next){
-		await ctx.render('index');
-
-})
-
-
-
-
-
-app.listen(3000,function(){
+app.use(s_static(config.get('staticDir')));
+app.listen(config.get('port'),function(){
 	console.log("server is running!");
 })
+
+export default  app;
