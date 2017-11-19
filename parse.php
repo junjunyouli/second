@@ -32,7 +32,10 @@
 
 				$this->getConnectsql();
 			};
+			header("Content-type: application/json; charset=utf-8"); 
 			$res = $this->con->exec($sql);
+			$arr = array('result'=>$res);
+			echo json_encode($arr);
 			$this->closeConn();
 		}
 		public function closeConn()

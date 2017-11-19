@@ -7,5 +7,5 @@ let driver = new Builder()
 driver.get('http://localhost:3000/index/index');
 driver.findElement(By.id('hands')).click();
 const _animation = driver.findElement(By.id('add'));
-driver.wait(_animation.isDisplayed(), 50000);
-driver.quit();
+driver.wait(_animation.isDisplayed(),1000);
+// driver.quit();
