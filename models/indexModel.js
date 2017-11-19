@@ -26,13 +26,14 @@ var indexModel = function () {
 		value: function updateNum() {
 			var options = {
 				method: 'GET',
-				uri: 'http://localhost:8081/parse.php'
+				uri: 'http://localhost:8011/parse.php',
+				header: { 'Access-control-Allow-Origin': '*' }
 			};
 			return new Promise(function (resolve, reject) {
-				(0, _requestPromise2.default)(options).then(function (resulet) {
+				(0, _requestPromise2.default)(options).then(function (result) {
 					var info = JSON.parse(result);
 					if (info) {
-						resolve({ data: info.resulet });
+						resolve({ data: info.result });
 					} else {
 						reject({});
 					}
