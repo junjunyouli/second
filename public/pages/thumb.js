@@ -61,8 +61,6 @@ var Thumb = function (_PraiseButton) {
 						$(".pd").removeClass('bd');
 					}
 					axios.get('/index/update').then(function (response) {
-						response.setHeader("Access-Control-Allow-Origin", "*");
-						response.setHeader("Content-Type", "text/html;charset=UTF-8");
 						console.log(response);
 					}).catch(function (error) {
 						console.log(error);
